@@ -1,0 +1,194 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Evita que o iOS aumente o texto sozinho ao girar o celular */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Títulos: mesmo tamanho de antes no computador, encolhem suavemente no celular */
+h1 {
+    font-size: clamp(1.35rem, 5.5vw, 2rem);
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: clamp(1.05rem, 4vw, 1.17rem);
+}
+
+nav {
+    background-color: #ff6ec7;
+    padding: 10px;
+    min-height: 60px;
+}
+
+nav ul.menu {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+nav ul.menu li {
+    margin-right: 15px;
+}
+
+nav ul.menu li a {
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul.menu li a.active {
+    border-bottom: 3px solid #6b003e;
+    padding-bottom: 5px;
+}
+
+.caixa {
+    box-sizing: border-box;
+    width: min(500px, calc(100% - 40px));
+    background-color: #c7007b;
+    margin: 70px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border-radius: 10px;
+    border: 3.5px solid #da8bff;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.mensagem {
+    align-items: stretch;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.mensagem h1,
+.mensagem h2 {
+    text-align: center;
+}
+
+.titulo-pagina {
+    margin: 30px 20px 0;
+    text-align: center;
+}
+
+.imagem {
+    display: block;
+    align-self: center;
+    width: 150px;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.botão {
+    background-color: #ff6ec7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+}
+
+.botão:hover {
+    background-color: #ea00ff;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 600px) {
+    nav {
+        min-height: 0;
+        padding: 4px 10px;
+    }
+
+    /* Menu centralizado, sem margens fixas, quebra de linha se a tela for muito estreita */
+    nav ul.menu {
+        justify-content: center;
+        gap: 0 18px;
+        margin: 0;
+    }
+
+    nav ul.menu li {
+        margin-right: 0;
+    }
+
+    /* Área de toque maior; o padding-bottom + a borda do .active somam 8px,
+       então o texto não "pula" ao trocar de página */
+    nav ul.menu li a {
+        display: inline-block;
+        font-size: 0.8rem;
+        padding: 16px 2px 8px;
+    }
+
+    nav ul.menu li a.active {
+        padding-bottom: 5px;
+    }
+
+    .caixa {
+        width: calc(100% - 32px);
+        margin: 28px auto;
+        padding: 20px 16px;
+        gap: 14px;
+    }
+
+    .titulo-pagina {
+        margin: 24px 16px 0;
+    }
+
+    /* Fotos um pouco maiores, mantendo a proporção 3:4 */
+    .imagem {
+        width: min(220px, 70%);
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
+
+    /* Botão mais fácil de tocar */
+    .botão {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+}
+
+/* Celulares bem pequenos */
+@media (max-width: 360px) {
+    nav ul.menu {
+        gap: 0 12px;
+    }
+
+    nav ul.menu li a {
+        font-size: 0.72rem;
+    }
+
+    .caixa {
+        padding: 16px 12px;
+    }
+}
